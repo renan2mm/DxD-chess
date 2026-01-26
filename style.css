@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0d0d0d;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+/* MENU */
+#menu {
+  text-align: center;
+  padding: 40px;
+}
+
+.selection {
+  margin: 20px 0;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+/* JOGO */
+#game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+/* CARTAS (ESTILO BARALHO) */
+.player-card {
+  width: 160px;
+  aspect-ratio: 63 / 88;
+  background: #111;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.player-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.player-card.white {
+  border: 2px solid #ddd;
+}
+
+.player-card.red {
+  border: 2px solid #8b0000;
+}
+
+/* BALÃO DE FALA */
+.speech {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.8);
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* TABULEIRO */
+#board {
+  width: 480px;
+  height: 480px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+/* CASAS */
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.square.light {
+  background: #f0d9b5; /* cor clara */
+}
+
+.square.dark {
+  background: #b58863; /* cor escura */
+}
+
+/* PEÇAS */
+.piece {
+  cursor: default;
+  user-select: none;
+}
+
+.white-piece {
+  color: #ffffff;
+  text-shadow: 0 0 2px #000;
+}
+
+.red-piece {
+  color: #8b0000;
+  text-shadow: 0 0 2px #000;
+}
+
+/* SELEÇÃO DE PEÇA */
+.square.selected {
+  outline: 3px solid #ffd700;
+}
+
+.square.move {
+  box-shadow: inset 0 0 0 4px rgba(0,255,0,0.5);
+}

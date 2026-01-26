@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>DxD Chess</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="menu">
+  <h1>DxD Chess</h1>
+
+  <h2>Escolha o bot</h2>
+  <div id="botSelection">
+
+    <button class="bot-card"
+      data-bot="rias"
+      data-name="Rias Gremory"
+      data-avatar="assets/avatars/rias.jpg">
+      <img src="assets/avatars/rias.jpg">
+      <span>Rias Gremory<br><small>Elo 2000</small></span>
+    </button>
+
+    <button class="bot-card"
+      data-bot="akeno"
+      data-name="Akeno Himejima"
+      data-avatar="assets/avatars/akeno.jpg">
+      <img src="assets/avatars/akeno.jpg">
+      <span>Akeno Himejima<br><small>Elo 1250</small></span>
+    </button>
+
+  </div>
+
+  <h2>Escolha sua cor</h2>
+  <div id="colorSelection">
+    <button class="color-btn" data-color="white">Brancas</button>
+    <button class="color-btn" data-color="red">Vermelho Carmesim</button>
+  </div>
+
+  <button id="startGame">Iniciar Partida</button>
+</div>
+
+<div id="game" class="hidden">
+
+  <aside class="player-card">
+    <img id="botAvatar">
+    <h3 id="botName"></h3>
+    <div id="botSpeech" class="speech hidden"></div>
+  </aside>
+
+  <div id="board"></div>
+
+</div>
+
+<script src="libs/chess.min.js"></script>
+<script src="engine/stockfish.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
