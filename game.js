@@ -270,7 +270,7 @@ function evaluatePosition() {
 function showSpeech(text) {
   botSpeech.textContent = text;
   botSpeech.classList.remove("hidden");
-  setTimeout(() => botSpeech.classList.add("hidden"), 3500);
+  setTimeout(() => botSpeech.classList.add("hidden"), 6000);
 }
 
 function random(arr) {
@@ -278,4 +278,5 @@ function random(arr) {
 }
 
 });
+
 
