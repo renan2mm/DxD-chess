@@ -28,7 +28,7 @@ let gameEnded = false;
 /* BOTS */
 const bots = {
   rias: { skill: 8 },
-  akeno: { skill: 4 }
+  akeno: { skill: 3 }
 };
 
 /* FRASES */
@@ -278,5 +278,6 @@ function random(arr) {
 }
 
 });
+
 
 
