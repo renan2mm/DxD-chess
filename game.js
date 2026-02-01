@@ -22,7 +22,6 @@ let playerColor = null;
 let playerSide = null;
 let botSide = null;
 
-let lastMoveByHuman = false;
 let gameEnded = false;
 
 /* BOTS */
@@ -242,11 +241,23 @@ function evaluatePosition() {
 
   if (chess.in_checkmate()) {
     gameEnded = true;
-    showSpeech(
-      chess.turn() === playerSide
-        ? random(botLines.checkmateLose)
-        : random(botLines.checkmateWin)
-    );
+
+    const humanWon = chess.turn() !== playerSide;
+
+    if (humanWon) {
+      if (selectedBot.id === "akeno") {
+        botAvatar.src = "assets/avatars/akeno_defeat.jpg";
+      }
+
+      if (selectedBot.id === "rias") {
+        botAvatar.src = "assets/avatars/rias_defeat.jpg";
+      }
+
+      showSpeech(random(botLines.checkmateLose));
+    } else {
+      showSpeech(random(botLines.checkmateWin));
+    }
+
     return;
   }
 
@@ -278,7 +289,3 @@ function random(arr) {
 }
 
 });
-
-
-
-
