@@ -124,7 +124,7 @@ engine.onmessage = e => {
   chess.move({
     from: m.slice(0, 2),
     to: m.slice(2, 4),
-    promotion: "q"
+    promotion: "q" // bot promove automaticamente
   });
 
   draw();
@@ -211,10 +211,27 @@ function clickSquare(s) {
     selectedSquare = s;
     s.classList.add("selected");
   } else {
+
+    let promotionPiece = "q";
+
+    if (
+      chess.get(selectedSquare.dataset.sq)?.type === "p" &&
+      (s.dataset.sq[1] === "1" || s.dataset.sq[1] === "8")
+    ) {
+      const choice = prompt(
+        "Promover para:\nq = Rainha\nr = Torre\nb = Bispo\nn = Cavalo",
+        "q"
+      );
+
+      if (["q","r","b","n"].includes(choice)) {
+        promotionPiece = choice;
+      }
+    }
+
     const move = chess.move({
       from: selectedSquare.dataset.sq,
       to: s.dataset.sq,
-      promotion: "q"
+      promotion: promotionPiece
     });
 
     document.querySelectorAll(".square").forEach(x => x.classList.remove("selected"));
@@ -248,16 +265,13 @@ function evaluatePosition() {
       if (selectedBot.id === "akeno") {
         botAvatar.src = "assets/avatars/akeno_defeat.jpg";
       }
-
       if (selectedBot.id === "rias") {
         botAvatar.src = "assets/avatars/rias_defeat.jpg";
       }
-
       showSpeech(random(botLines.checkmateLose));
     } else {
       showSpeech(random(botLines.checkmateWin));
     }
-
     return;
   }
 
@@ -289,4 +303,3 @@ function random(arr) {
 }
 
 });
-
