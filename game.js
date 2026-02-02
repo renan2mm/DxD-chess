@@ -216,7 +216,10 @@ function clickSquare(s) {
 
     if (
       chess.get(selectedSquare.dataset.sq)?.type === "p" &&
-      (s.dataset.sq[1] === "1" || s.dataset.sq[1] === "8")
+      (
+        (playerSide === "w" && s.dataset.sq[1] === "8") ||
+        (playerSide === "b" && s.dataset.sq[1] === "1")  
+      )
     ) {
       const choice = prompt(
         "Promover para:\nq = Rainha\nr = Torre\nb = Bispo\nn = Cavalo",
@@ -303,5 +306,6 @@ function random(arr) {
 }
 
 });
+
 
 
